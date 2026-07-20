@@ -3,7 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
     <title>Broadcast Media | André Beganski</title>
+
+    <!-- White "AB" on Black Background Inline Favicon -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%23111111'/><text x='50%' y='64%' font-family='serif' font-weight='900' font-size='52' fill='%23FFFFFF' text-anchor='middle'>AB</text></svg>">
+
+    <!-- Open Graph / Social Media Preview Meta Tags -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="André Beganski | Business Storyteller & Reporter">
+    <meta property="og:description" content="Business and economics reporter specializing in digital assets, institutional trends, and financial reporting.">
+    <meta property="og:image" content="Headshot.jpg">
+    <meta property="og:url" content="https://andrebeganski.github.io/broadcast.html">
+
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="André Beganski | Business Storyteller & Reporter">
+    <meta name="twitter:description" content="Business and economics reporter specializing in digital assets, institutional trends, and financial reporting.">
+    <meta name="twitter:image" content="Headshot.jpg">
     
     <!-- Broadsheet Editorial Fonts from Google -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -12,6 +29,7 @@
 
     <!-- Font Awesome for Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
 
     <style>
         :root {
@@ -73,6 +91,7 @@
             object-fit: cover;
             border: 1px solid var(--border);
             filter: grayscale(20%);
+            flex-shrink: 0;
         }
 
         h1, h2, h3 {
@@ -99,21 +118,6 @@
 
         section {
             margin-bottom: 2.5rem;
-        }
-
-        h2 {
-            font-size: 1.5rem;
-            font-weight: 800;
-            margin-bottom: 0.85rem;
-            padding-bottom: 0.35rem;
-            border-bottom: 2px solid var(--ink);
-            text-transform: uppercase;
-            letter-spacing: 0.02em;
-        }
-
-        p {
-            margin-bottom: 1.25rem;
-            font-size: 1.05rem;
         }
 
         /* Section Navigation Bar */
@@ -155,6 +159,8 @@
             align-items: baseline;
             justify-content: space-between;
             margin-bottom: 0.75rem;
+            border-bottom: 2px solid var(--ink);
+            padding-bottom: 0.35rem;
         }
 
         .outlet-title {
@@ -323,6 +329,7 @@
 <body>
 
     <div class="container">
+
         <header>
             <div class="header-content">
                 <a href="index.html">
@@ -344,29 +351,56 @@
 
         <main>
             <section id="broadcast-page">
-                <h2>Broadcast Media</h2>
-                <p>On-camera appearances, investigative video reporting, and deep-dive analysis covering digital assets and business operations.</p>
 
                 <!-- DECRYPT SUBSECTION -->
                 <div class="outlet-section" id="decrypt">
                     <div class="outlet-header">
                         <h3 class="outlet-title">Decrypt</h3>
-                        <span class="outlet-tagline">Video Interviews & Live Commentary</span>
+                        <span class="outlet-tagline">Video Interviews</span>
                     </div>
 
                     <div class="media-grid">
+                        <!-- DECRYPT INTERVIEW 1 -->
                         <article class="media-card">
                             <div class="media-meta">
-                                <span>Video Interview</span>
+                                <span>Interview</span>
                                 <span>Decrypt Media</span>
                             </div>
-                            <h4>Segment Title / Feature Highlight</h4>
-                            <p>Brief description of the broadcast segment, key talking points, or featured guests covered for Decrypt.</p>
+                            <h4>From Paper to Code: The Future of Tokenization with Carlos Domingo</h4>
+                            <p>Securitize co-founder and CEO Carlos Domingo delves into the nuances of tokenization, from its potential benefits to the industry's failed experiments.</p>
                             <div class="video-container">
-                                <iframe src="https://www.youtube-nocookie.com/embed/placeholder" title="Decrypt Broadcast Segment" allowfullscreen></iframe>
+                                <iframe 
+                                    src="https://www.youtube.com/embed/MroJtOIIro0" 
+                                    title="From Paper to Code: The Future of Tokenization with Carlos Domingo" 
+                                    referrerpolicy="strict-origin-when-cross-origin"
+                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                                    allowfullscreen>
+                                </iframe>
                             </div>
-                            <a href="#" target="_blank" rel="noopener" class="media-link">
-                                Watch Full Segment <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                            <a href="https://www.youtube.com/watch?v=MroJtOIIro0" target="_blank" rel="noopener noreferrer" class="media-link">
+                                Watch on YouTube <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                            </a>
+                        </article>
+
+                        <!-- DECRYPT INTERVIEW 2 -->
+                        <article class="media-card">
+                            <div class="media-meta">
+                                <span>Interview</span>
+                                <span>Decrypt Media</span>
+                            </div>
+                            <h4>Kevin O'Leary Lays the Blueprint for Crypto Mass Adoption</h4>
+                            <p>Kevin O'Leary discusses all things crypto with Decrypt, including his belief that stablecoins are a key part of the puzzle to crypto's adoption.</p>
+                            <div class="video-container">
+                                <iframe 
+                                    src="https://www.youtube.com/embed/aiEcyI8enJc" 
+                                    title="Kevin O'Leary Lays the Blueprint for Crypto Mass Adoption" 
+                                    referrerpolicy="strict-origin-when-cross-origin"
+                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                                    allowfullscreen>
+                                </iframe>
+                            </div>
+                            <a href="https://www.youtube.com/watch?v=aiEcyI8enJc" target="_blank" rel="noopener noreferrer" class="media-link">
+                                Watch on YouTube <i class="fa-solid fa-arrow-up-right-from-square"></i>
                             </a>
                         </article>
                     </div>
@@ -376,7 +410,7 @@
                 <div class="outlet-section" id="coinage">
                     <div class="outlet-header">
                         <h3 class="outlet-title">Coinage</h3>
-                        <span class="outlet-tagline">Web3 Financial News & Investigations</span>
+                        <span class="outlet-tagline">Investigations</span>
                     </div>
 
                     <div class="media-grid">
@@ -389,9 +423,15 @@
                             <h4>Why Am I in Zambia? Separating INDXcoin and Church</h4>
                             <p>Dive into the shocking story of Pastor Eli Regalado and the INDXcoin debacle, once touted as a divine digital asset.</p>
                             <div class="video-container">
-                                <iframe src="https://www.youtube-nocookie.com/embed/XrXxFnZdpG4" title="Why Am I in Zambia? Separating INDXcoin and Church" allowfullscreen></iframe>
+                                <iframe 
+                                    src="https://www.youtube.com/embed/XrXxFnZdpG4" 
+                                    title="Why Am I in Zambia? Separating INDXcoin and Church" 
+                                    referrerpolicy="strict-origin-when-cross-origin"
+                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                                    allowfullscreen>
+                                </iframe>
                             </div>
-                            <a href="https://www.youtube.com/watch?v=XrXxFnZdpG4&t=2s" target="_blank" rel="noopener" class="media-link">
+                            <a href="https://www.youtube.com/watch?v=XrXxFnZdpG4&t=2s" target="_blank" rel="noopener noreferrer" class="media-link">
                                 Watch on YouTube <i class="fa-solid fa-arrow-up-right-from-square"></i>
                             </a>
                         </article>
@@ -405,9 +445,15 @@
                             <h4>I Clicked On 10 Crypto Twitter Ads. All 10 Were Scams</h4>
                             <p>Ads on X targeting crypto users are often too good to be true.</p>
                             <div class="video-container">
-                                <iframe src="https://www.youtube-nocookie.com/embed/eAYnP_edBk0" title="I Clicked On 10 Crypto Twitter Ads. All 10 Were Scams" allowfullscreen></iframe>
+                                <iframe 
+                                    src="https://www.youtube.com/embed/eAYnP_edBk0" 
+                                    title="I Clicked On 10 Crypto Twitter Ads. All 10 Were Scams" 
+                                    referrerpolicy="strict-origin-when-cross-origin"
+                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                                    allowfullscreen>
+                                </iframe>
                             </div>
-                            <a href="https://www.youtube.com/watch?v=eAYnP_edBk0" target="_blank" rel="noopener" class="media-link">
+                            <a href="https://www.youtube.com/watch?v=eAYnP_edBk0" target="_blank" rel="noopener noreferrer" class="media-link">
                                 Watch on YouTube <i class="fa-solid fa-arrow-up-right-from-square"></i>
                             </a>
                         </article>
@@ -420,11 +466,11 @@
         <footer>
             <div class="links">
                 <a href="mailto:andrebeganski@gmail.com"><i class="fa-solid fa-envelope"></i> Email</a>
-                <a href="https://x.com/andrebeganski" target="_blank" rel="noopener"><i class="fa-brands fa-x-twitter"></i> X / Twitter</a>
-                <a href="https://www.linkedin.com/in/beganski/" target="_blank" rel="noopener"><i class="fa-brands fa-linkedin"></i> LinkedIn</a>
-                <a href="https://muckrack.com/andre-beganski" target="_blank" rel="noopener"><i class="fa-solid fa-newspaper"></i> Muck Rack</a>
-                <a href="https://www.instagram.com/andrebeganski/" target="_blank" rel="noopener"><i class="fa-brands fa-instagram"></i> Instagram</a>
-                <a href="Beganski_André_Resume.pdf" target="_blank"><i class="fa-solid fa-file-pdf"></i> Resume (PDF)</a>
+                <a href="https://x.com/andrebeganski" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-x-twitter"></i> X / Twitter</a>
+                <a href="https://www.linkedin.com/in/beganski/" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-linkedin"></i> LinkedIn</a>
+                <a href="https://muckrack.com/andre-beganski" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-newspaper"></i> Muck Rack</a>
+                <a href="https://www.instagram.com/andrebeganski/" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-instagram"></i> Instagram</a>
+                <a href="Beganski_Andre_Resume.pdf" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-file-pdf"></i> Resume (PDF)</a>
             </div>
         </footer>
     </div>

@@ -1,0 +1,28 @@
+/* Force scrollbar to stay visible on ALL pages so content never shifts horizontally or vertically */
+html {
+    overflow-y: scroll;
+}
+
+/* Lock navigation bar height & alignment */
+.work-nav {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 42px; /* Fixed height eliminates vertical jitter */
+    margin-top: 1.25rem;
+    margin-bottom: 2rem;
+    padding: 0;
+    border-top: 1px solid var(--ink);
+    border-bottom: 1px solid var(--ink);
+}
+
+.work-nav a {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--ink);
+    text-decoration: none;
+    line-height: 42px; /* Matches fixed nav height */
+}

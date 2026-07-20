@@ -3,7 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
     <title>Contact | André Beganski</title>
+
+    <!-- White "AB" on Black Background Inline Favicon -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%23111111'/><text x='50%' y='64%' font-family='serif' font-weight='900' font-size='52' fill='%23FFFFFF' text-anchor='middle'>AB</text></svg>">
+
+    <!-- Open Graph / Social Media Preview Meta Tags -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="André Beganski | Business Storyteller & Reporter">
+    <meta property="og:description" content="Business and economics reporter specializing in digital assets, institutional trends, and financial reporting.">
+    <meta property="og:image" content="Headshot.jpg">
+    <meta property="og:url" content="https://andrebeganski.github.io/">
+
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="André Beganski | Business Storyteller & Reporter">
+    <meta name="twitter:description" content="Business and economics reporter specializing in digital assets, institutional trends, and financial reporting.">
+    <meta name="twitter:image" content="Headshot.jpg">
     
     <!-- Broadsheet Editorial Fonts from Google -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -12,7 +29,8 @@
 
     <!-- Font Awesome for Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-
+    <link rel="stylesheet" href="styles.css">
+    
     <style>
         :root {
             --paper: #FFFFFF;
@@ -73,6 +91,7 @@
             object-fit: cover;
             border: 1px solid var(--border);
             filter: grayscale(20%);
+            flex-shrink: 0;
         }
 
         h1, h2, h3 {
@@ -338,11 +357,11 @@
         <footer>
             <div class="links">
                 <a href="mailto:andrebeganski@gmail.com"><i class="fa-solid fa-envelope"></i> Email</a>
-                <a href="https://x.com/andrebeganski" target="_blank" rel="noopener"><i class="fa-brands fa-x-twitter"></i> X / Twitter</a>
-                <a href="https://www.linkedin.com/in/beganski/" target="_blank" rel="noopener"><i class="fa-brands fa-linkedin"></i> LinkedIn</a>
-                <a href="https://muckrack.com/andre-beganski" target="_blank" rel="noopener"><i class="fa-solid fa-newspaper"></i> Muck Rack</a>
-                <a href="https://www.instagram.com/andrebeganski/" target="_blank" rel="noopener"><i class="fa-brands fa-instagram"></i> Instagram</a>
-                <a href="Beganski_André_Resume.pdf" target="_blank"><i class="fa-solid fa-file-pdf"></i> Resume (PDF)</a>
+                <a href="https://x.com/andrebeganski" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-x-twitter"></i> X / Twitter</a>
+                <a href="https://www.linkedin.com/in/beganski/" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-linkedin"></i> LinkedIn</a>
+                <a href="https://muckrack.com/andre-beganski" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-newspaper"></i> Muck Rack</a>
+                <a href="https://www.instagram.com/andrebeganski/" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-instagram"></i> Instagram</a>
+                <a href="Beganski_Andre_Resume.pdf" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-file-pdf"></i> Resume (PDF)</a>
             </div>
         </footer>
     </div>

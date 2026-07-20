@@ -3,7 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
     <title>Writing | André Beganski</title>
+
+    <!-- White "AB" on Black Background Inline Favicon -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%23111111'/><text x='50%' y='64%' font-family='serif' font-weight='900' font-size='52' fill='%23FFFFFF' text-anchor='middle'>AB</text></svg>">
+
+    <!-- Open Graph / Social Media Preview Meta Tags -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="André Beganski | Writer & Reporter">
+    <meta property="og:description" content="Selected journalism, reporting, and features by business and economics reporter André Beganski.">
+    <meta property="og:image" content="Headshot.jpg">
+    <meta property="og:url" content="https://andrebeganski.github.io/writing.html">
+
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="André Beganski | Writer & Reporter">
+    <meta name="twitter:description" content="Selected journalism, reporting, and features by business and economics reporter André Beganski.">
+    <meta name="twitter:image" content="Headshot.jpg">
     
     <!-- Broadsheet Editorial Fonts from Google -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -12,6 +29,7 @@
 
     <!-- Font Awesome for Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
 
     <style>
         :root {
@@ -31,8 +49,8 @@
             background-color: var(--paper);
             color: var(--ink);
             font-family: 'Lora', serif;
-            line-height: 1.4;
-            padding: 1rem;
+            line-height: 1.5;
+            padding: 1.5rem;
             -webkit-font-smoothing: antialiased;
         }
 
@@ -43,8 +61,8 @@
 
         /* Compact Masthead Styling */
         header {
-            margin-bottom: 1.25rem;
-            padding: 0.75rem 0;
+            margin-bottom: 2rem;
+            padding: 1.25rem 0;
             border-top: 3px solid var(--ink);
             border-bottom: 1px solid var(--ink);
             position: relative;
@@ -63,16 +81,17 @@
         .header-content {
             display: flex;
             align-items: center;
-            gap: 1rem;
+            gap: 1.25rem;
         }
 
         .profile-img {
-            width: 75px;
-            height: 75px;
+            width: 100px;
+            height: 100px;
             border-radius: 50%;
             object-fit: cover;
             border: 1px solid var(--border);
             filter: grayscale(20%);
+            flex-shrink: 0;
         }
 
         h1, h2, h3 {
@@ -81,16 +100,16 @@
         }
 
         h1 {
-            font-size: 2.25rem;
+            font-size: 2.75rem;
             font-weight: 900;
-            margin-bottom: 0.05rem;
+            margin-bottom: 0.1rem;
             letter-spacing: -0.03em;
             line-height: 1;
         }
 
         .subtitle {
             font-family: 'Inter', sans-serif;
-            font-size: 0.8rem;
+            font-size: 0.9rem;
             color: var(--gray);
             font-weight: 600;
             text-transform: uppercase;
@@ -98,15 +117,15 @@
         }
 
         section {
-            margin-bottom: 1.75rem;
+            margin-bottom: 2.25rem;
         }
 
         /* Category Section Headers */
         h2 {
-            font-size: 1.25rem;
+            font-size: 1.5rem;
             font-weight: 800;
-            margin-bottom: 0.75rem;
-            padding-bottom: 0.25rem;
+            margin-bottom: 0.85rem;
+            padding-bottom: 0.35rem;
             border-bottom: 2px solid var(--ink);
             text-transform: uppercase;
             letter-spacing: 0.02em;
@@ -114,7 +133,7 @@
 
         p {
             margin-bottom: 0;
-            font-size: 0.95rem;
+            font-size: 1.05rem;
         }
 
         /* Navigation Bar */
@@ -122,15 +141,16 @@
             display: flex;
             justify-content: space-around;
             align-items: center;
-            margin-bottom: 1.5rem;
-            padding: 0.4rem 0;
+            margin-top: 1.25rem;
+            margin-bottom: 2rem;
+            padding: 0.6rem 0;
             border-top: 1px solid var(--ink);
             border-bottom: 1px solid var(--ink);
         }
 
         .work-nav a {
             font-family: 'Inter', sans-serif;
-            font-size: 0.8rem;
+            font-size: 0.85rem;
             font-weight: 700;
             text-transform: uppercase;
             letter-spacing: 0.06em;
@@ -146,12 +166,12 @@
 
         /* Clip Item Styling */
         .clip {
-            margin-bottom: 0.85rem;
+            margin-bottom: 1.5rem;
         }
 
         .clip-content {
             display: flex;
-            gap: 1rem;
+            gap: 1.25rem;
             align-items: center;
         }
 
@@ -160,18 +180,18 @@
         }
 
         .clip-thumb {
-            width: 120px;
-            height: 75px;
+            width: 150px;
+            height: 95px;
             object-fit: cover;
             border: 1px solid var(--border);
             flex-shrink: 0;
         }
 
         .clip h3 {
-            font-size: 1.1rem;
+            font-size: 1.35rem;
             font-weight: 800;
-            margin-bottom: 0.15rem;
-            line-height: 1.2;
+            margin-bottom: 0.2rem;
+            line-height: 1.25;
         }
 
         .clip h3 a {
@@ -187,19 +207,19 @@
 
         .clip-meta {
             font-family: 'Inter', sans-serif;
-            font-size: 0.75rem;
+            font-size: 0.8rem;
             text-transform: uppercase;
             letter-spacing: 0.05em;
             color: var(--gray);
-            margin-bottom: 0.1rem;
+            margin-bottom: 0.2rem;
             font-weight: 700;
         }
 
         /* Footer & Links */
         footer {
             border-top: 1px solid var(--ink);
-            padding-top: 1rem;
-            margin-top: 1.5rem;
+            padding-top: 1.25rem;
+            margin-top: 2.5rem;
             position: relative;
         }
 
@@ -216,7 +236,7 @@
         .links {
             display: flex;
             flex-wrap: wrap;
-            gap: 0.75rem 1.25rem;
+            gap: 1rem 1.5rem;
         }
 
         .links a {
@@ -224,7 +244,7 @@
             color: var(--ink);
             text-decoration: none;
             font-weight: 600;
-            font-size: 0.8rem;
+            font-size: 0.85rem;
             text-transform: uppercase;
             letter-spacing: 0.03em;
             display: inline-flex;
@@ -233,7 +253,7 @@
         }
 
         .links a i {
-            font-size: 0.9rem;
+            font-size: 0.95rem;
             color: var(--ink);
         }
 
@@ -247,27 +267,28 @@
             .header-content {
                 flex-direction: column;
                 text-align: center;
-                gap: 0.75rem;
+                gap: 1rem;
             }
             .work-nav {
                 flex-direction: column;
-                gap: 0.4rem;
+                gap: 0.5rem;
             }
             .clip-content {
                 flex-direction: column;
             }
             .clip-thumb {
                 width: 100%;
-                height: 140px;
+                height: 180px;
             }
-            h1 { font-size: 2rem; }
-            body { padding: 0.75rem; }
+            h1 { font-size: 2.25rem; }
+            body { padding: 1.25rem 1rem; }
         }
     </style>
 </head>
 <body>
 
     <div class="container">
+
         <header>
             <div class="header-content">
                 <a href="index.html">
@@ -275,7 +296,7 @@
                 </a>
                 <div class="header-text">
                     <h1>André Beganski</h1>
-                    <p class="subtitle">Written Work & Features</p>
+                    <p class="subtitle">Writer & Reporter</p>
                 </div>
             </div>
         </header>
@@ -293,12 +314,12 @@
             
             <div class="clip">
                 <div class="clip-content">
-                    <a href="https://finance.yahoo.com/news/coinbase-disrupts-bitcoin-backed-lending-134202483.html" target="_blank" rel="noopener">
+                    <a href="https://finance.yahoo.com/news/coinbase-disrupts-bitcoin-backed-lending-134202483.html" target="_blank" rel="noopener noreferrer">
                         <img src="Coinbase.jpg" alt="Coinbase Article Thumbnail" class="clip-thumb">
                     </a>
                     <div class="clip-text">
                         <div class="clip-meta">Decrypt Media</div>
-                        <h3><a href="https://finance.yahoo.com/news/coinbase-disrupts-bitcoin-backed-lending-134202483.html" target="_blank" rel="noopener">Coinbase Disrupts Bitcoin Backed Lending With Low Bar for Servicing Americans</a></h3>
+                        <h3><a href="https://finance.yahoo.com/news/coinbase-disrupts-bitcoin-backed-lending-134202483.html" target="_blank" rel="noopener noreferrer">Coinbase Disrupts Bitcoin Backed Lending With Low Bar for Servicing Americans</a></h3>
                         <p>Coinbase's Bitcoin-backed lending service relies on the permissionless nature of DeFi, but there's a catch.</p>
                     </div>
                 </div>
@@ -306,12 +327,12 @@
 
             <div class="clip">
                 <div class="clip-content">
-                    <a href="https://decrypt.co/354791/dtcc-walled-gardens-tokenization-digital-assets-head" target="_blank" rel="noopener">
+                    <a href="https://decrypt.co/354791/dtcc-walled-gardens-tokenization-digital-assets-head" target="_blank" rel="noopener noreferrer">
                         <img src="DTCC.jpg" alt="DTCC Article Thumbnail" class="clip-thumb">
                     </a>
                     <div class="clip-text">
                         <div class="clip-meta">Decrypt Media</div>
-                        <h3><a href="https://decrypt.co/354791/dtcc-walled-gardens-tokenization-digital-assets-head" target="_blank" rel="noopener">DTCC 'Not Building Walled Gardens' for Tokenization, Says Digital Assets Head</a></h3>
+                        <h3><a href="https://decrypt.co/354791/dtcc-walled-gardens-tokenization-digital-assets-head" target="_blank" rel="noopener noreferrer">DTCC 'Not Building Walled Gardens' for Tokenization, Says Digital Assets Head</a></h3>
                         <p>The financial giant says it's open to interoperability.</p>
                     </div>
                 </div>
@@ -319,12 +340,12 @@
 
             <div class="clip">
                 <div class="clip-content">
-                    <a href="https://decrypt.co/360147/inside-quest-colossus-replace-visa-mastercard-kyc-less-crypto-cards" target="_blank" rel="noopener">
+                    <a href="https://decrypt.co/360147/inside-quest-colossus-replace-visa-mastercard-kyc-less-crypto-cards" target="_blank" rel="noopener noreferrer">
                         <img src="Colossus.jpg" alt="Colossus Article Thumbnail" class="clip-thumb">
                     </a>
                     <div class="clip-text">
                         <div class="clip-meta">Decrypt Media</div>
-                        <h3><a href="https://decrypt.co/360147/inside-quest-colossus-replace-visa-mastercard-kyc-less-crypto-cards" target="_blank" rel="noopener">Inside the Quest at Colossus to Replace Visa and Mastercard With KYC-Less Crypto Cards</a></h3>
+                        <h3><a href="https://decrypt.co/360147/inside-quest-colossus-replace-visa-mastercard-kyc-less-crypto-cards" target="_blank" rel="noopener noreferrer">Inside the Quest at Colossus to Replace Visa and Mastercard With KYC-Less Crypto Cards</a></h3>
                         <p>With a "box of goodies" and a team of four, the firm is trying to replace payment incumbents with an Ethereum layer-2</p>
                     </div>
                 </div>
@@ -338,12 +359,12 @@
             
             <div class="clip">
                 <div class="clip-content">
-                    <a href="https://decrypt.co/371529/everyday-savers-bet-big-bitcoin-giant-strategy-strc-falling" target="_blank" rel="noopener">
+                    <a href="https://decrypt.co/371529/everyday-savers-bet-big-bitcoin-giant-strategy-strc-falling" target="_blank" rel="noopener noreferrer">
                         <img src="Saylor.jpg" alt="Michael Saylor Article Thumbnail" class="clip-thumb">
                     </a>
                     <div class="clip-text">
                         <div class="clip-meta">Decrypt Media</div>
-                        <h3><a href="https://decrypt.co/371529/everyday-savers-bet-big-bitcoin-giant-strategy-strc-falling" target="_blank" rel="noopener">Everyday Savers Bet Big on Bitcoin Giant Strategy's STRC—Now It's Falling</a></h3>
+                        <h3><a href="https://decrypt.co/371529/everyday-savers-bet-big-bitcoin-giant-strategy-strc-falling" target="_blank" rel="noopener noreferrer">Everyday Savers Bet Big on Bitcoin Giant Strategy's STRC—Now It's Falling</a></h3>
                         <p>Everyday investors that own Strategy's STRC have been drawn to double-digit yields, but the preferred stock's volatility has shaken some.</p>
                     </div>
                 </div>
@@ -351,12 +372,12 @@
 
             <div class="clip">
                 <div class="clip-content">
-                    <a href="https://decrypt.co/323512/existential-crisis-bitcoin-quantum-computing-threat-fast-approaching" target="_blank" rel="noopener">
+                    <a href="https://decrypt.co/323512/existential-crisis-bitcoin-quantum-computing-threat-fast-approaching" target="_blank" rel="noopener noreferrer">
                         <img src="Quantum.jpg" alt="Quantum Computing Article Thumbnail" class="clip-thumb">
                     </a>
                     <div class="clip-text">
                         <div class="clip-meta">Decrypt Media</div>
-                        <h3><a href="https://decrypt.co/323512/existential-crisis-bitcoin-quantum-computing-threat-fast-approaching" target="_blank" rel="noopener">'Existential Crisis': Bitcoin Quantum Computing Threat Is Fast Approaching, Experts Say</a></h3>
+                        <h3><a href="https://decrypt.co/323512/existential-crisis-bitcoin-quantum-computing-threat-fast-approaching" target="_blank" rel="noopener noreferrer">'Existential Crisis': Bitcoin Quantum Computing Threat Is Fast Approaching, Experts Say</a></h3>
                         <p>At a private luncheon, experts advocated for "preparedness," not "denial," to overcome the quantum computing threat.</p>
                     </div>
                 </div>
@@ -364,12 +385,12 @@
 
             <div class="clip">
                 <div class="clip-content">
-                    <a href="https://decrypt.co/356972/brock-pierce-relationship-jeffrey-epstein-deeper-anyone-knew" target="_blank" rel="noopener">
+                    <a href="https://decrypt.co/356972/brock-pierce-relationship-jeffrey-epstein-deeper-anyone-knew" target="_blank" rel="noopener noreferrer">
                         <img src="Brock.jpg" alt="Brock Pierce Article Thumbnail" class="clip-thumb">
                     </a>
                     <div class="clip-text">
                         <div class="clip-meta">Decrypt Media</div>
-                        <h3><a href="https://decrypt.co/356972/brock-pierce-relationship-jeffrey-epstein-deeper-anyone-knew" target="_blank" rel="noopener">Brock Pierce's Relationship With Jeffrey Epstein Went Deeper Than Anyone Knew</a></h3>
+                        <h3><a href="https://decrypt.co/356972/brock-pierce-relationship-jeffrey-epstein-deeper-anyone-knew" target="_blank" rel="noopener noreferrer">Brock Pierce's Relationship With Jeffrey Epstein Went Deeper Than Anyone Knew</a></h3>
                         <p>Convicted child sex offender Jeffrey Epstein was involved in Tether co-founder Brock Pierce's love life, among other things.</p>
                     </div>
                 </div>
@@ -383,12 +404,12 @@
             
             <div class="clip">
                 <div class="clip-content">
-                    <a href="https://finance.yahoo.com/markets/crypto/articles/president-trump-immigration-order-feed-154918178.html" target="_blank" rel="noopener">
+                    <a href="https://finance.yahoo.com/markets/crypto/articles/president-trump-immigration-order-feed-154918178.html" target="_blank" rel="noopener noreferrer">
                         <img src="Trump.jpg" alt="Trump Article Thumbnail" class="clip-thumb">
                     </a>
                     <div class="clip-text">
                         <div class="clip-meta">Decrypt Media</div>
-                        <h3><a href="https://finance.yahoo.com/markets/crypto/articles/president-trump-immigration-order-feed-154918178.html" target="_blank" rel="noopener">How President Trump's Immigration Order Will Feed the Stablecoin Economy, Bitcoin ATMs</a></h3>
+                        <h3><a href="https://finance.yahoo.com/markets/crypto/articles/president-trump-immigration-order-feed-154918178.html" target="_blank" rel="noopener noreferrer">How President Trump's Immigration Order Will Feed the Stablecoin Economy, Bitcoin ATMs</a></h3>
                         <p>When the Trump family faced pressure from banks, it embraced crypto. Now, immigrants who are in the U.S. illegally face a similar choice.</p>
                     </div>
                 </div>
@@ -396,12 +417,12 @@
 
             <div class="clip">
                 <div class="clip-content">
-                    <a href="https://decrypt.co/283890/tornado-cash-roman-storm-free-speech-defense" target="_blank" rel="noopener">
+                    <a href="https://decrypt.co/283890/tornado-cash-roman-storm-free-speech-defense" target="_blank" rel="noopener noreferrer">
                         <img src="Storm.jpg" alt="Roman Storm Article Thumbnail" class="clip-thumb">
                     </a>
                     <div class="clip-text">
                         <div class="clip-meta">Decrypt Media</div>
-                        <h3><a href="https://decrypt.co/283890/tornado-cash-roman-storm-free-speech-defense" target="_blank" rel="noopener">Why Tornado Cash Co-Founder Roman Storm's Free Speech Defense Was Rejected in Court</a></h3>
+                        <h3><a href="https://decrypt.co/283890/tornado-cash-roman-storm-free-speech-defense" target="_blank" rel="noopener noreferrer">Why Tornado Cash Co-Founder Roman Storm's Free Speech Defense Was Rejected in Court</a></h3>
                         <p>A U.S. district judge ruled that the First Amendment didn't warrant tossing charges around sanctioned Ethereum coin mixer, Tornado Cash.</p>
                     </div>
                 </div>
@@ -409,12 +430,12 @@
 
             <div class="clip">
                 <div class="clip-content">
-                    <a href="https://decrypt.co/359113/mrbeast-employee-fined-suspended-kalshi-insider-trading-youtube" target="_blank" rel="noopener">
+                    <a href="https://decrypt.co/359113/mrbeast-employee-fined-suspended-kalshi-insider-trading-youtube" target="_blank" rel="noopener noreferrer">
                         <img src="Beast.jpg" alt="MrBeast Article Thumbnail" class="clip-thumb">
                     </a>
                     <div class="clip-text">
                         <div class="clip-meta">Decrypt Media</div>
-                        <h3><a href="https://decrypt.co/359113/mrbeast-employee-fined-suspended-kalshi-insider-trading-youtube" target="_blank" rel="noopener">MrBeast Employee Fined, Suspended by Kalshi for Insider Trading on YouTube Videos</a></h3>
+                        <h3><a href="https://decrypt.co/359113/mrbeast-employee-fined-suspended-kalshi-insider-trading-youtube" target="_blank" rel="noopener noreferrer">MrBeast Employee Fined, Suspended by Kalshi for Insider Trading on YouTube Videos</a></h3>
                         <p>Kalshi revealed its first enforcement actions Wednesday, against a political candidate and an employee of YouTube star MrBeast.</p>
                     </div>
                 </div>
@@ -428,12 +449,12 @@
             
             <div class="clip">
                 <div class="clip-content">
-                    <a href="https://decrypt.co/358070/can-meme-coins-power-senate-bid-virginia-mark-moran-says-yes" target="_blank" rel="noopener">
+                    <a href="https://decrypt.co/358070/can-meme-coins-power-senate-bid-virginia-mark-moran-says-yes" target="_blank" rel="noopener noreferrer">
                         <img src="Moran.jpg" alt="Mark Moran Article Thumbnail" class="clip-thumb">
                     </a>
                     <div class="clip-text">
                         <div class="clip-meta">Decrypt Media</div>
-                        <h3><a href="https://decrypt.co/358070/can-meme-coins-power-senate-bid-virginia-mark-moran-says-yes" target="_blank" rel="noopener">Can Meme Coins Power a Senate Bid? Virginia's Mark Moran Says Yes</a></h3>
+                        <h3><a href="https://decrypt.co/358070/can-meme-coins-power-senate-bid-virginia-mark-moran-says-yes" target="_blank" rel="noopener noreferrer">Can Meme Coins Power a Senate Bid? Virginia's Mark Moran Says Yes</a></h3>
                         <p>Mark Moran is using a meme coin on Solana to elevate his U.S. Senate bid, rallying degens against a pro-crypto Democrat in Virginia.</p>
                     </div>
                 </div>
@@ -441,12 +462,12 @@
 
             <div class="clip">
                 <div class="clip-content">
-                    <a href="https://decrypt.co/341612/kickflips-crypto-project-pay-28k-guinness-world-record" target="_blank" rel="noopener">
+                    <a href="https://decrypt.co/341612/kickflips-crypto-project-pay-28k-guinness-world-record" target="_blank" rel="noopener noreferrer">
                         <img src="Kickflip.jpg" alt="Kickflip Article Thumbnail" class="clip-thumb">
                     </a>
                     <div class="clip-text">
                         <div class="clip-meta">Decrypt Media</div>
-                        <h3><a href="https://decrypt.co/341612/kickflips-crypto-project-pay-28k-guinness-world-record" target="_blank" rel="noopener">Kickflips for Crypto? This Project Will Pay $28K for a Guinness World Record</a></h3>
+                        <h3><a href="https://decrypt.co/341612/kickflips-crypto-project-pay-28k-guinness-world-record" target="_blank" rel="noopener noreferrer">Kickflips for Crypto? This Project Will Pay $28K for a Guinness World Record</a></h3>
                         <p>A meme coin bounty is being bankrolled by a DAO called The Haberdashery and several of POIDH's users.</p>
                     </div>
                 </div>
@@ -454,12 +475,12 @@
 
             <div class="clip">
                 <div class="clip-content">
-                    <a href="https://decrypt.co/357315/vibes-davos-degens-bitcoin-ethereum-plummeted" target="_blank" rel="noopener">
+                    <a href="https://decrypt.co/357315/vibes-davos-degens-bitcoin-ethereum-plummeted" target="_blank" rel="noopener noreferrer">
                         <img src="Davos.jpg" alt="Davos Article Thumbnail" class="clip-thumb">
                     </a>
                     <div class="clip-text">
                         <div class="clip-meta">Decrypt Media</div>
-                        <h3><a href="https://decrypt.co/357315/vibes-davos-degens-bitcoin-ethereum-plummeted" target="_blank" rel="noopener">The Vibes From the 'Davos for Degens' as Bitcoin and Ethereum Plummeted</a></h3>
+                        <h3><a href="https://decrypt.co/357315/vibes-davos-degens-bitcoin-ethereum-plummeted" target="_blank" rel="noopener noreferrer">The Vibes From the 'Davos for Degens' as Bitcoin and Ethereum Plummeted</a></h3>
                         <p>At a conference dedicated to the riskiest traders in finance, Miami's crypto scene appeared far different than during its pandemic-era boom.</p>
                     </div>
                 </div>
@@ -470,11 +491,11 @@
         <footer>
             <div class="links">
                 <a href="mailto:andrebeganski@gmail.com"><i class="fa-solid fa-envelope"></i> Email</a>
-                <a href="https://x.com/andrebeganski" target="_blank" rel="noopener"><i class="fa-brands fa-x-twitter"></i> X / Twitter</a>
-                <a href="https://www.linkedin.com/in/beganski/" target="_blank" rel="noopener"><i class="fa-brands fa-linkedin"></i> LinkedIn</a>
-                <a href="https://muckrack.com/andre-beganski" target="_blank" rel="noopener"><i class="fa-solid fa-newspaper"></i> Muck Rack</a>
-                <a href="https://www.instagram.com/andrebeganski/" target="_blank" rel="noopener"><i class="fa-brands fa-instagram"></i> Instagram</a>
-                <a href="Beganski_André_Resume.pdf" target="_blank"><i class="fa-solid fa-file-pdf"></i> Resume (PDF)</a>
+                <a href="https://x.com/andrebeganski" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-x-twitter"></i> X / Twitter</a>
+                <a href="https://www.linkedin.com/in/beganski/" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-linkedin"></i> LinkedIn</a>
+                <a href="https://muckrack.com/andre-beganski" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-newspaper"></i> Muck Rack</a>
+                <a href="https://www.instagram.com/andrebeganski/" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-instagram"></i> Instagram</a>
+                <a href="Beganski_Andre_Resume.pdf" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-file-pdf"></i> Resume (PDF)</a>
             </div>
         </footer>
     </div>

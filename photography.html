@@ -3,7 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
     <title>Photography | André Beganski</title>
+
+    <!-- White "AB" on Black Background Inline Favicon -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%23111111'/><text x='50%' y='64%' font-family='serif' font-weight='900' font-size='52' fill='%23FFFFFF' text-anchor='middle'>AB</text></svg>">
+
+    <!-- Open Graph / Social Media Preview Meta Tags -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="André Beganski | Photography">
+    <meta property="og:description" content="Editorial and personal photography by business and economics reporter André Beganski.">
+    <meta property="og:image" content="Headshot.jpg">
+    <meta property="og:url" content="https://andrebeganski.github.io/photography.html">
+
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="André Beganski | Photography">
+    <meta name="twitter:description" content="Editorial and personal photography by business and economics reporter André Beganski.">
+    <meta name="twitter:image" content="Headshot.jpg">
     
     <!-- Broadsheet Editorial Fonts from Google -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -12,6 +29,9 @@
 
     <!-- Font Awesome for Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <!-- Master External Stylesheet -->
+    <link rel="stylesheet" href="styles.css">
 
     <style>
         :root {
@@ -31,8 +51,8 @@
             background-color: var(--paper);
             color: var(--ink);
             font-family: 'Lora', serif;
-            line-height: 1.6;
-            padding: 2rem;
+            line-height: 1.5;
+            padding: 1.5rem;
             -webkit-font-smoothing: antialiased;
         }
 
@@ -41,10 +61,10 @@
             margin: 0 auto;
         }
 
-        /* Masthead Styling */
+        /* Compact Masthead Styling */
         header {
             margin-bottom: 2rem;
-            padding: 1rem 0;
+            padding: 1.25rem 0;
             border-top: 3px solid var(--ink);
             border-bottom: 1px solid var(--ink);
             position: relative;
@@ -53,7 +73,7 @@
         header::after {
             content: '';
             position: absolute;
-            bottom: 3px;
+            bottom: 2px;
             left: 0;
             right: 0;
             height: 1px;
@@ -63,16 +83,17 @@
         .header-content {
             display: flex;
             align-items: center;
-            gap: 1.5rem;
+            gap: 1.25rem;
         }
 
         .profile-img {
-            width: 90px;
-            height: 90px;
+            width: 100px;
+            height: 100px;
             border-radius: 50%;
             object-fit: cover;
             border: 1px solid var(--border);
             filter: grayscale(20%);
+            flex-shrink: 0;
         }
 
         h1, h2, h3 {
@@ -90,17 +111,42 @@
 
         .subtitle {
             font-family: 'Inter', sans-serif;
-            font-size: 0.85rem;
+            font-size: 0.9rem;
             color: var(--gray);
             font-weight: 600;
             text-transform: uppercase;
             letter-spacing: 0.05em;
         }
 
-        section {
-            margin-bottom: 3rem;
+        /* Work Navigation Bar */
+        .work-nav {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            margin-top: 1.25rem;
+            margin-bottom: 2rem;
+            padding: 0.6rem 0;
+            border-top: 1px solid var(--ink);
+            border-bottom: 1px solid var(--ink);
         }
 
+        .work-nav a {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.85rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            color: var(--ink);
+            text-decoration: none;
+        }
+
+        .work-nav a:hover,
+        .work-nav a.active {
+            text-decoration: underline;
+            text-underline-offset: 3px;
+        }
+
+        /* Specific Page Styles for Photography Portfolio Only */
         .portfolio-intro {
             font-size: 1.05rem;
             margin-bottom: 2.5rem;
@@ -143,38 +189,6 @@
             content: '−';
         }
 
-        p {
-            margin-bottom: 0;
-            font-size: 1rem;
-        }
-
-        /* Navigation Bar */
-        .work-nav {
-            display: flex;
-            justify-content: space-around;
-            align-items: center;
-            margin-bottom: 2.5rem;
-            padding: 0.6rem 0;
-            border-top: 1px solid var(--ink);
-            border-bottom: 1px solid var(--ink);
-        }
-
-        .work-nav a {
-            font-family: 'Inter', sans-serif;
-            font-size: 0.85rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 0.06em;
-            color: var(--ink);
-            text-decoration: none;
-        }
-
-        .work-nav a:hover,
-        .work-nav a.active {
-            text-decoration: underline;
-            text-underline-offset: 3px;
-        }
-
         /* Stacked & Centered Layout for Photos */
         .photo-stack-container {
             display: flex;
@@ -195,15 +209,15 @@
         /* Footer & Links */
         footer {
             border-top: 1px solid var(--ink);
-            padding-top: 1.5rem;
-            margin-top: 3rem;
+            padding-top: 1.25rem;
+            margin-top: 2.5rem;
             position: relative;
         }
 
         footer::before {
             content: '';
             position: absolute;
-            top: 3px;
+            top: 2px;
             left: 0;
             right: 0;
             height: 1px;
@@ -226,7 +240,7 @@
             letter-spacing: 0.03em;
             display: inline-flex;
             align-items: center;
-            gap: 0.4rem;
+            gap: 0.35rem;
         }
 
         .links a i {
@@ -239,7 +253,6 @@
             text-underline-offset: 3px;
         }
 
-        /* Responsive adjustments */
         @media (max-width: 600px) {
             .header-content {
                 flex-direction: column;
@@ -248,10 +261,10 @@
             }
             .work-nav {
                 flex-direction: column;
-                gap: 0.6rem;
+                gap: 0.5rem;
             }
             h1 { font-size: 2.25rem; }
-            body { padding: 1rem; }
+            body { padding: 1.25rem 1rem; }
         }
     </style>
 </head>
@@ -265,7 +278,7 @@
                 </a>
                 <div class="header-text">
                     <h1>André Beganski</h1>
-                    <p class="subtitle">Photography & Visual Portfolio</p>
+                    <p class="subtitle">Photographer</p>
                 </div>
             </div>
         </header>
@@ -326,13 +339,12 @@
         <footer>
             <div class="links">
                 <a href="mailto:andrebeganski@gmail.com"><i class="fa-solid fa-envelope"></i> Email</a>
-                <a href="https://x.com/andrebeganski" target="_blank" rel="noopener"><i class="fa-brands fa-x-twitter"></i> X / Twitter</a>
-                <a href="https://www.linkedin.com/in/beganski/" target="_blank" rel="noopener"><i class="fa-brands fa-linkedin"></i> LinkedIn</a>
-                <a href="https://muckrack.com/andre-beganski" target="_blank" rel="noopener"><i class="fa-solid fa-newspaper"></i> Muck Rack</a>
-                <a href="https://www.instagram.com/andrebeganski/" target="_blank" rel="noopener"><i class="fa-brands fa-instagram"></i> Instagram</a>
-                <a href="Beganski_André_Resume.pdf" target="_blank"><i class="fa-solid fa-file-pdf"></i> Resume (PDF)</a>
+                <a href="https://x.com/andrebeganski" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-x-twitter"></i> X / Twitter</a>
+                <a href="https://www.linkedin.com/in/beganski/" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-linkedin"></i> LinkedIn</a>
+                <a href="https://muckrack.com/andre-beganski" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-newspaper"></i> Muck Rack</a>
+                <a href="https://www.instagram.com/andrebeganski/" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-instagram"></i> Instagram</a>
+                <a href="Beganski_Andre_Resume.pdf" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-file-pdf"></i> Resume (PDF)</a>
             </div>
-            <p style="font-family: 'Inter', sans-serif; font-size: 0.8rem; color: var(--gray); font-style: italic; margin-top: 1rem;">This website was vibe-coded using Google's Gemini.</p>
         </footer>
     </div>
 

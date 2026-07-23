@@ -15,14 +15,43 @@ html {
     border-bottom: 1px solid var(--ink);
 }
 
-.clip-thumb {
-    filter: grayscale(100%);
-    transition: filter 0.3s ease, transform 0.3s ease;
+.work-nav a {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--ink);
+    text-decoration: none;
+    line-height: 42px; /* Matches fixed nav height */
 }
 
-.clip:hover .clip-thumb {
-    filter: grayscale(0%);
-    transform: scale(1.02); /* Slight zoom effect */
+/* Force scrollbar to stay visible on ALL pages so content never shifts horizontally or vertically */
+html {
+    overflow-y: scroll;
+}
+
+/* Lock navigation bar height & alignment */
+.work-nav {
+    display: flex;
+    justify-content: space-between; 
+    align-items: center;
+    margin-top: 1.25rem;
+    margin-bottom: 2rem;
+    padding: 0.6rem 1rem; /* Adds 1rem of horizontal padding */
+    border-top: 1px solid var(--ink);
+    border-bottom: 1px solid var(--ink);
+}
+
+.work-nav a {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--ink);
+    text-decoration: none;
+    line-height: 42px; /* Matches fixed nav height */
 }
 
 @media (max-width: 600px) {
@@ -31,11 +60,6 @@ html {
         gap: 0.5rem;
         padding: 0.75rem 1rem;
     }
-}
-
-.clip:hover .clip-thumb {
-    filter: grayscale(0%);
-    transform: scale(1.02); /* Slight zoom effect */
 }
 
 @media (max-width: 600px) {

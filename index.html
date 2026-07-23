@@ -33,6 +33,20 @@
     <meta name="twitter:description" content="Business and economics reporter specializing in digital assets, institutional trends, and financial reporting.">
     <meta name="twitter:image" content="Headshot.jpg">
 
+    <!-- First-Visit Check Script (Tip: add ?reset=true to your URL to test the animation again) -->
+    <script>
+        const urlParams = new URLSearchParams(window.location.search);
+        if (urlParams.has('reset')) {
+            localStorage.removeItem('siteVisited');
+        }
+
+        if (localStorage.getItem('siteVisited')) {
+            document.documentElement.classList.add('returning-visitor');
+        } else {
+            localStorage.setItem('siteVisited', 'true');
+        }
+    </script>
+
     <style>
         :root {
             --paper: #FFFFFF;
@@ -127,17 +141,17 @@
 
         /* FIRST-TIME VISITOR ANIMATION OVERRIDES */
         html:not(.returning-visitor) img.profile-img {
-            filter: grayscale(100%) !important;
+            filter: grayscale(100%); /* !important removed */
             animation: revealColor 2.5s ease-out forwards !important;
         }
 
         html:not(.returning-visitor) .header-text h1 {
-            opacity: 0 !important;
+            opacity: 0; /* !important removed */
             animation: fadeInText 1.0s ease-out 0.4s forwards !important;
         }
 
         html:not(.returning-visitor) .header-text .subtitle {
-            opacity: 0 !important;
+            opacity: 0; /* !important removed */
             animation: fadeInText 1.0s ease-out 0.8s forwards !important;
         }
 
@@ -240,20 +254,12 @@
             object-fit: cover;
             border: 1px solid var(--border);
             flex-shrink: 0;
-            filter: grayscale(100%);
-            transition: filter 0.4s ease, transform 0.4s ease, border-color 0.4s ease;
         }
-        
+
         .clip-content a:first-child {
             display: block;
             overflow: hidden;
             flex-shrink: 0;
-        }
-
-        .clip:hover .clip-thumb {
-            filter: grayscale(0%);
-            transform: scale(1.04);
-            border-color: var(--gray);
         }
         
         /* Prominent Hero Clip Styles */

@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="referrer" content="strict-origin-when-cross-origin">
-    <title>André Beganski | Business Storyteller & Reporter</title>
+    <title>André Beganski | Business & Crypto Reporter</title>
     
     <!-- Broadsheet Editorial Fonts from Google -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -22,16 +22,30 @@
 
     <!-- Open Graph / Social Media Preview Meta Tags -->
     <meta property="og:type" content="website">
-    <meta property="og:title" content="André Beganski | Business Storyteller & Reporter">
+    <meta property="og:title" content="André Beganski | Business & Crypto Reporter">
     <meta property="og:description" content="Business and economics reporter specializing in digital assets, institutional trends, and financial reporting.">
     <meta property="og:image" content="Headshot.jpg">
     <meta property="og:url" content="https://andrebeganski.github.io/">
 
     <!-- Twitter Card Meta Tags -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="André Beganski | Business Storyteller & Reporter">
+    <meta name="twitter:title" content="André Beganski | Business & Crypto Reporter">
     <meta name="twitter:description" content="Business and economics reporter specializing in digital assets, institutional trends, and financial reporting.">
     <meta name="twitter:image" content="Headshot.jpg">
+
+    <!-- First-Visit Check Script (Tip: add ?reset=true to your URL to test the animation again) -->
+    <script>
+        const urlParams = new URLSearchParams(window.location.search);
+        if (urlParams.has('reset')) {
+            localStorage.removeItem('siteVisited');
+        }
+
+        if (localStorage.getItem('siteVisited')) {
+            document.documentElement.classList.add('returning-visitor');
+        } else {
+            localStorage.setItem('siteVisited', 'true');
+        }
+    </script>
 
     <style>
         :root {
@@ -86,19 +100,25 @@
             gap: 1.25rem;
         }
 
+        /* Animations */
+        @keyframes revealColor {
+            0% { filter: grayscale(100%); }
+            100% { filter: grayscale(20%); }
+        }
+
+        @keyframes fadeInText {
+            0% { opacity: 0; transform: translateY(4px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
         .profile-img {
             width: 100px;
             height: 100px;
             border-radius: 50%;
             object-fit: cover;
             border: 1px solid var(--border);
-            filter: grayscale(20%);
             flex-shrink: 0;
-        }
-
-        h1, h2, h3 {
-            font-family: 'Playfair Display', serif;
-            color: var(--ink);
+            filter: grayscale(20%);
         }
 
         h1 {
@@ -117,6 +137,39 @@
             text-transform: uppercase;
             letter-spacing: 0.05em;
             margin: 0;
+        }
+
+        /* FIRST-TIME VISITOR ANIMATION OVERRIDES */
+        html:not(.returning-visitor) img.profile-img {
+            filter: grayscale(100%) !important;
+            animation: revealColor 2.5s ease-out forwards !important;
+        }
+
+        html:not(.returning-visitor) .header-text h1 {
+            opacity: 0 !important;
+            animation: fadeInText 1.0s ease-out 0.4s forwards !important;
+        }
+
+        html:not(.returning-visitor) .header-text .subtitle {
+            opacity: 0 !important;
+            animation: fadeInText 1.0s ease-out 0.8s forwards !important;
+        }
+
+        /* RETURNING VISITOR STATES (Forces full visibility immediately) */
+        html.returning-visitor img.profile-img {
+            filter: grayscale(20%) !important;
+        }
+
+        html.returning-visitor .header-text h1,
+        html.returning-visitor .header-text .subtitle {
+            opacity: 1 !important;
+            transform: none !important;
+            animation: none !important;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Playfair Display', serif;
+            color: var(--ink);
         }
 
         section {
@@ -143,16 +196,21 @@
         #about p {
             font-size: 0.95rem;
             line-height: 1.55;
+            margin-bottom: 1rem;
+        }
+        
+        #about p:last-child {
+            margin-bottom: 0;
         }
 
         /* Navigation Bar */
         .work-nav {
             display: flex;
-            justify-content: space-around;
+            justify-content: space-between; 
             align-items: center;
             margin-top: 1.25rem;
             margin-bottom: 2rem;
-            padding: 0.6rem 0;
+            padding: 0.6rem 1rem;
             border-top: 1px solid var(--ink);
             border-bottom: 1px solid var(--ink);
         }
@@ -165,6 +223,7 @@
             letter-spacing: 0.06em;
             color: var(--ink);
             text-decoration: none;
+            transition: color 0.2s ease;
         }
 
         .work-nav a:hover,
@@ -188,14 +247,57 @@
             flex: 1;
         }
 
+        /* Standard Article Thumbnails */
         .clip-thumb {
             width: 150px;
             height: 95px;
             object-fit: cover;
             border: 1px solid var(--border);
             flex-shrink: 0;
+            filter: grayscale(100%);
+            transition: filter 0.4s ease, transform 0.4s ease, border-color 0.4s ease;
+        }
+        
+        .clip-content a:first-child {
+            display: block;
+            overflow: hidden;
+            flex-shrink: 0;
         }
 
+        .clip:hover .clip-thumb {
+            filter: grayscale(0%);
+            transform: scale(1.04);
+            border-color: var(--gray);
+        }
+        
+        /* Prominent Hero Clip Styles */
+        .clip-hero {
+            margin-bottom: 2rem;
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 1.75rem;
+        }
+
+        .clip-hero .clip-content {
+            gap: 1.5rem;
+            align-items: center;
+        }
+
+        .clip-hero .clip-thumb {
+            width: 250px;
+            height: 155px;
+            object-fit: cover;
+        }
+        
+        .clip-hero h3 {
+            font-size: 1.5rem; 
+            margin-bottom: 0.3rem;
+        }
+        
+        .clip-hero p {
+            font-size: 1.05rem; 
+        }
+
+        /* Standard Clip Headlines */
         .clip h3 {
             font-size: 1.35rem;
             font-weight: 800;
@@ -206,9 +308,11 @@
         .clip h3 a {
             color: var(--ink);
             text-decoration: none;
+            transition: color 0.2s ease;
         }
 
         .clip h3 a:hover {
+            color: var(--gray);
             text-decoration: underline;
             text-decoration-thickness: 2px;
             text-underline-offset: 3px;
@@ -220,8 +324,12 @@
             text-transform: uppercase;
             letter-spacing: 0.05em;
             color: var(--gray);
-            margin-bottom: 0.2rem;
+            margin-bottom: 0.3rem;
             font-weight: 700;
+        }
+
+        .clip-meta span {
+            display: inline-block;
         }
 
         /* Contact Section Styling */
@@ -244,12 +352,13 @@
             letter-spacing: 0.06em;
             text-decoration: none;
             margin-top: 0.75rem;
-            transition: opacity 0.2s ease;
+            transition: opacity 0.2s ease, transform 0.2s ease;
         }
 
         .btn-editorial:hover {
             opacity: 0.85;
             text-decoration: none;
+            transform: translateY(-1px);
         }
 
         /* Footer & Socials */
@@ -274,6 +383,7 @@
             display: flex;
             flex-wrap: wrap;
             gap: 1rem 1.5rem;
+            margin-bottom: 1.5rem;
         }
 
         .links a {
@@ -287,16 +397,32 @@
             display: inline-flex;
             align-items: center;
             gap: 0.35rem;
+            transition: opacity 0.2s ease;
         }
 
         .links a i {
             font-size: 0.95rem;
             color: var(--ink);
+            transition: transform 0.2s ease;
         }
 
         .links a:hover {
+            opacity: 0.7;
             text-decoration: underline;
             text-underline-offset: 3px;
+        }
+        
+        .links a:hover i {
+            transform: scale(1.1);
+        }
+        
+        .colophon {
+            text-align: center;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.75rem;
+            color: var(--gray);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
         }
 
         /* Responsive tweak for phones */
@@ -309,11 +435,15 @@
             .work-nav {
                 flex-direction: column;
                 gap: 0.5rem;
+                padding: 0.75rem 1rem;
             }
             .clip-content {
                 flex-direction: column;
             }
-            .clip-thumb {
+            .clip-content a:first-child {
+                width: 100%;
+            }
+            .clip-thumb, .clip-hero .clip-thumb {
                 width: 100%;
                 height: 180px;
             }
@@ -332,91 +462,110 @@
                 </a>
                 <div class="header-text">
                     <h1>André Beganski</h1>
-                    <p class="subtitle">Business Storyteller & Reporter</p>
+                    <p class="subtitle">Business & Crypto Reporter</p>
                 </div>
             </div>
         </header>
 
+        <!-- Navigation with elevated Resume link -->
         <nav class="work-nav">
             <a href="index.html" class="active">Home</a>
             <a href="writing.html">Writing</a>
             <a href="photography.html">Photography</a>
             <a href="broadcast.html">Broadcast Media</a>
+            <a href="Beganski_Andre_Resume.pdf" target="_blank" rel="noopener noreferrer">Resume</a>
         </nav>
 
         <section id="about">
             <h2>About</h2>
-            <p>Seasoned business and economics reporter specializing in distilling complex technical subjects into compelling, jargon-free narratives. Leverages deep knowledge of the digital assets sector to track institutional trends, craft written features, and conduct engaging on-camera interviews.</p>
-            <p>Holds a Master's degree in Business & Financial Reporting from Craig Newmark Graduate School of Journalism at CUNY, specializing in data journalism. Aims to inform and educate audiences on cryptocurrency developments, while challenging assumptions.</p>
+            <p>For four years, covered the crypto industry for Decrypt—from Wall Street tapping the technology as market plumbing to the controversial surge of prediction markets and the trial of FTX co-founder Sam Bankman-Fried. Previously, my work has appeared in <strong>The New York Times</strong>, <strong>The Daily News</strong>, and <strong>Coinage</strong>.</p>
+            <p>When I'm not breaking down market trends or interviewing C-suite executives, I'm usually digging through legal documents and SEC disclosures. I'm driven by good old shoe-leather journalism, whether that means structuring data for a story or picking up a camera for field coverage.</p>
+            <p>Before studying business and economics reporting at the Craig Newmark Graduate School of Journalism, with a specialization in data journalism, I developed my foundation in news media at Baruch College.</p>
         </section>
 
         <section id="clips">
-            <h2>Selected Work</h2>
+            <h2>Featured Work</h2>
             
+            <!-- Hero Clip 1: Investigation -->
+            <div class="clip clip-hero">
+                <div class="clip-content">
+                    <a href="https://decrypt.co/356972/brock-pierce-relationship-jeffrey-epstein-deeper-anyone-knew" target="_blank" rel="noopener noreferrer">
+                        <img src="Brock.jpg" alt="Brock Pierce Article Thumbnail" class="clip-thumb">
+                    </a>
+                    <div class="clip-text">
+                        <div class="clip-meta">
+                            <span>Feb. 4, 2026</span>
+                        </div>
+                        <h3><a href="https://decrypt.co/356972/brock-pierce-relationship-jeffrey-epstein-deeper-anyone-knew" target="_blank" rel="noopener noreferrer">Brock Pierce's Relationship With Jeffrey Epstein Went Deeper Than Anyone Knew</a></h3>
+                        <p>Convicted sex offender Jeffrey Epstein was deeply involved in Tether co-founder Brock Pierce's personal and financial life.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Hero Clip 2: Photo Essay -->
+            <div class="clip clip-hero">
+                <div class="clip-content">
+                    <a href="https://www.nytimes.com/2019/09/26/automobiles/auto-strikes-history.html" target="_blank" rel="noopener noreferrer">
+                        <img src="Detroit.jpg" alt="New York Times Auto Strikes Photo Essay Thumbnail" class="clip-thumb">
+                    </a>
+                    <div class="clip-text">
+                        <div class="clip-meta">
+                            <span>Sept. 26, 2019</span>
+                        </div>
+                        <h3><a href="https://www.nytimes.com/2019/09/26/automobiles/auto-strikes-history.html" target="_blank" rel="noopener noreferrer">Occupy Detroit: A Look at 90 Years of Auto Strikes</a></h3>
+                        <p>Walkouts and sit-ins by the United Automobile Workers over the decades secured contracts that built the middle class.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Standard Clip 1 -->
             <div class="clip">
                 <div class="clip-content">
-                    <a href="https://finance.yahoo.com/news/coinbase-disrupts-bitcoin-backed-lending-134202483.html" target="_blank" rel="noopener noreferrer">
+                    <a href="https://decrypt.co/345886/coinbase-disrupts-bitcoin-backed-lending-low-bar-servicing-americans" target="_blank" rel="noopener noreferrer">
                         <img src="Coinbase.jpg" alt="Coinbase Article Thumbnail" class="clip-thumb">
                     </a>
                     <div class="clip-text">
-                        <div class="clip-meta">Decrypt Media</div>
-                        <h3><a href="https://finance.yahoo.com/news/coinbase-disrupts-bitcoin-backed-lending-134202483.html" target="_blank" rel="noopener noreferrer">Coinbase Disrupts Bitcoin Backed Lending With Low Bar for Servicing Americans</a></h3>
-                        <p>Coinbase's Bitcoin-backed lending service relies on the permissionless nature of DeFi, but there's a catch.</p>
+                        <div class="clip-meta">
+                            <span>Oct. 28, 2025</span>
+                        </div>
+                        <h3><a href="https://decrypt.co/345886/coinbase-disrupts-bitcoin-backed-lending-low-bar-servicing-americans" target="_blank" rel="noopener noreferrer">Coinbase Disrupts Bitcoin Backed Lending With Low Bar for Servicing Americans</a></h3>
+                        <p>Coinbase’s Bitcoin-backed lending service relies on the permissionless nature of decentralized finance, but there is a catch.</p>
                     </div>
                 </div>
             </div>
 
+            <!-- Standard Clip 2 -->
             <div class="clip">
                 <div class="clip-content">
-                    <a href="https://finance.yahoo.com/markets/crypto/articles/president-trump-immigration-order-feed-154918178.html" target="_blank" rel="noopener noreferrer">
+                    <a href="https://decrypt.co/369479/how-president-trump-immigration-order-feed-stablecoin-bitcoin-atms" target="_blank" rel="noopener noreferrer">
                         <img src="Trump.jpg" alt="Trump Article Thumbnail" class="clip-thumb">
                     </a>
                     <div class="clip-text">
-                        <div class="clip-meta">Decrypt Media</div>
-                        <h3><a href="https://finance.yahoo.com/markets/crypto/articles/president-trump-immigration-order-feed-154918178.html" target="_blank" rel="noopener noreferrer">How President Trump's Immigration Order Will Feed the Stablecoin Economy, Bitcoin ATMs</a></h3>
-                        <p>When the Trump family faced pressure from banks, it embraced crypto. Now, immigrants who are in the U.S. illegally face a similar choice.</p>
+                        <div class="clip-meta">
+                            <span>May 31, 2026</span>
+                        </div>
+                        <h3><a href="https://decrypt.co/369479/how-president-trump-immigration-order-feed-stablecoin-bitcoin-atms" target="_blank" rel="noopener noreferrer">How President Trump's Immigration Order Will Feed the Stablecoin Economy, Bitcoin ATMs</a></h3>
+                        <p>When the Trump family faced pressure from banks, it embraced crypto. Now, immigrants face a similar choice.</p>
                     </div>
                 </div>
             </div>
 
-            <div class="clip">
-                <div class="clip-content">
-                    <a href="https://decrypt.co/371529/everyday-savers-bet-big-bitcoin-giant-strategy-strc-falling" target="_blank" rel="noopener noreferrer">
-                        <img src="Saylor.jpg" alt="Michael Saylor Article Thumbnail" class="clip-thumb">
-                    </a>
-                    <div class="clip-text">
-                        <div class="clip-meta">Decrypt Media</div>
-                        <h3><a href="https://decrypt.co/371529/everyday-savers-bet-big-bitcoin-giant-strategy-strc-falling" target="_blank" rel="noopener noreferrer">Everyday Savers Bet Big on Bitcoin Giant Strategy's STRC—Now It's Falling</a></h3>
-                        <p>Everyday investors that own Strategy's STRC have been drawn to double-digit yields, but the preferred stock's volatility has shaken some.</p>
-                    </div>
-                </div>
-            </div>
-
+            <!-- Standard Clip 3 -->
             <div class="clip">
                 <div class="clip-content">
                     <a href="https://www.coinage.media/s3/why-am-i-in-zambia-separating-indxcoin-and-church" target="_blank" rel="noopener noreferrer">
                         <img src="Zambia.jpg" alt="Coinage Media Zambia Video Thumbnail" class="clip-thumb">
                     </a>
                     <div class="clip-text">
-                        <div class="clip-meta">Coinage Media</div>
+                        <div class="clip-meta">
+                            <span>April 11, 2024</span>
+                        </div>
                         <h3><a href="https://www.coinage.media/s3/why-am-i-in-zambia-separating-indxcoin-and-church" target="_blank" rel="noopener noreferrer">Why Am I in Zambia? Separating INDXcoin and Church</a></h3>
-                        <p>Dive into the shocking story of Pastor Eli Regalado and the INDXcoin debacle, once touted as a divine digital asset.</p>
+                        <p>Dive into the shocking story of Pastor Eli Regalado and the INDXcoin debacle, once touted as divine.</p>
                     </div>
                 </div>
             </div>
-
-            <div class="clip">
-                <div class="clip-content">
-                    <a href="https://www.nytimes.com/2019/09/26/automobiles/auto-strikes-history.html" target="_blank" rel="noopener noreferrer">
-                        <img src="Detroit.jpg" alt="New York Times Auto Strikes Photo Essay Thumbnail" class="clip-thumb">
-                    </a>
-                    <div class="clip-text">
-                        <div class="clip-meta">The New York Times</div>
-                        <h3><a href="https://www.nytimes.com/2019/09/26/automobiles/auto-strikes-history.html" target="_blank" rel="noopener noreferrer">Occupy Detroit: A Look at 90 Years of Auto Strikes</a></h3>
-                        <p>Walkouts and sit-ins by the United Automobile Workers over the decades helped secure contracts that lifted members into the middle class.</p>
-                    </div>
-                </div>
-            </div>
+            
         </section>
 
         <section id="contact">
@@ -429,10 +578,6 @@
             </div>
         </section>
 
-        <p style="font-family: 'Inter', sans-serif; font-size: 0.75rem; color: var(--gray); text-transform: uppercase; letter-spacing: 0.05em; text-align: center; margin-top: 2rem;">
-            This website was vibe-coded from scratch using Google's Gemini.
-        </p>
-
         <footer>
             <div class="links">
                 <a href="mailto:andrebeganski@gmail.com"><i class="fa-solid fa-envelope"></i> Email</a>
@@ -442,10 +587,9 @@
                 <a href="https://www.instagram.com/andrebeganski/" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-instagram"></i> Instagram</a>
                 <a href="Beganski_Andre_Resume.pdf" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-file-pdf"></i> Resume (PDF)</a>
             </div>
+            <p class="colophon">Built with HTML/CSS • Assisted by Gemini</p>
         </footer>
     </div>
-
-    
 
 </body>
 </html>

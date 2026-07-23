@@ -11,14 +11,14 @@
 
     <!-- Open Graph / Social Media Preview Meta Tags -->
     <meta property="og:type" content="website">
-    <meta property="og:title" content="André Beganski | Business Storyteller & Reporter">
+    <meta property="og:title" content="André Beganski | Business & Crypto Reporter">
     <meta property="og:description" content="Business and economics reporter specializing in digital assets, institutional trends, and financial reporting.">
     <meta property="og:image" content="Headshot.jpg">
     <meta property="og:url" content="https://andrebeganski.github.io/broadcast.html">
 
     <!-- Twitter Card Meta Tags -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="André Beganski | Business Storyteller & Reporter">
+    <meta name="twitter:title" content="André Beganski | Business & Crypto Reporter">
     <meta name="twitter:description" content="Business and economics reporter specializing in digital assets, institutional trends, and financial reporting.">
     <meta name="twitter:image" content="Headshot.jpg">
     
@@ -30,6 +30,15 @@
     <!-- Font Awesome for Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="styles.css">
+
+    <!-- First-Visit Check Script -->
+    <script>
+        if (localStorage.getItem('siteVisited')) {
+            document.documentElement.classList.add('returning-visitor');
+        } else {
+            localStorage.setItem('siteVisited', 'true');
+        }
+    </script>
 
     <style>
         :root {
@@ -84,27 +93,34 @@
             gap: 1.25rem;
         }
 
+        /* Staggered On-Load Color and Fade Animations */
+        @keyframes fadeInColor {
+            0% { filter: grayscale(100%); }
+            100% { filter: grayscale(20%); }
+        }
+
+        @keyframes fadeInText {
+            0% { opacity: 0; transform: translateY(4px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
         .profile-img {
             width: 100px;
             height: 100px;
             border-radius: 50%;
             object-fit: cover;
             border: 1px solid var(--border);
-            filter: grayscale(20%);
             flex-shrink: 0;
-        }
-
-        h1, h2, h3 {
-            font-family: 'Playfair Display', serif;
-            color: var(--ink);
+            filter: grayscale(20%);
         }
 
         h1 {
             font-size: 2.75rem;
             font-weight: 900;
-            margin-bottom: 0.1rem;
+            margin: 0 0 0.1rem 0;
             letter-spacing: -0.03em;
             line-height: 1;
+            opacity: 1;
         }
 
         .subtitle {
@@ -114,20 +130,43 @@
             font-weight: 600;
             text-transform: uppercase;
             letter-spacing: 0.05em;
+            margin: 0;
+            opacity: 1;
+        }
+
+        /* Apply animations ONLY for first-time visitors */
+        html:not(.returning-visitor) .profile-img {
+            filter: grayscale(100%);
+            animation: fadeInColor 2.5s ease-out forwards;
+        }
+
+        html:not(.returning-visitor) h1 {
+            opacity: 0;
+            animation: fadeInText 1.0s ease-out 0.4s forwards;
+        }
+
+        html:not(.returning-visitor) .subtitle {
+            opacity: 0;
+            animation: fadeInText 1.0s ease-out 0.8s forwards;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Playfair Display', serif;
+            color: var(--ink);
         }
 
         section {
             margin-bottom: 2.5rem;
         }
 
-        /* Section Navigation Bar */
+        /* Section Navigation Bar with Matching Inset Padding */
         .work-nav {
             display: flex;
-            justify-content: space-around;
+            justify-content: space-between;
             align-items: center;
             margin-top: 1.25rem;
             margin-bottom: 2rem;
-            padding: 0.6rem 0;
+            padding: 0.6rem 1rem;
             border-top: 1px solid var(--ink);
             border-bottom: 1px solid var(--ink);
         }
@@ -140,6 +179,7 @@
             letter-spacing: 0.06em;
             color: var(--ink);
             text-decoration: none;
+            transition: color 0.2s ease;
         }
 
         .work-nav a:hover,
@@ -281,6 +321,7 @@
             display: flex;
             flex-wrap: wrap;
             gap: 1rem 1.5rem;
+            margin-bottom: 1.5rem;
         }
 
         .links a {
@@ -294,16 +335,32 @@
             display: inline-flex;
             align-items: center;
             gap: 0.35rem;
+            transition: opacity 0.2s ease;
         }
 
         .links a i {
             font-size: 0.95rem;
             color: var(--ink);
+            transition: transform 0.2s ease;
         }
 
         .links a:hover {
+            opacity: 0.7;
             text-decoration: underline;
             text-underline-offset: 3px;
+        }
+        
+        .links a:hover i {
+            transform: scale(1.1);
+        }
+
+        .colophon {
+            text-align: center;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.75rem;
+            color: var(--gray);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
         }
 
         /* Responsive tweak for phones */
@@ -316,6 +373,7 @@
             .work-nav {
                 flex-direction: column;
                 gap: 0.5rem;
+                padding: 0.75rem 1rem;
             }
             .outlet-header {
                 flex-direction: column;
@@ -337,7 +395,7 @@
                 </a>
                 <div class="header-text">
                     <h1>André Beganski</h1>
-                    <p class="subtitle">Business Storyteller & Reporter</p>
+                    <p class="subtitle">Business & Crypto Reporter</p>
                 </div>
             </div>
         </header>
@@ -347,6 +405,7 @@
             <a href="writing.html">Writing</a>
             <a href="photography.html">Photography</a>
             <a href="broadcast.html" class="active">Broadcast Media</a>
+            <a href="Beganski_Andre_Resume.pdf" target="_blank" rel="noopener noreferrer">Resume</a>
         </nav>
 
         <main>
@@ -356,7 +415,6 @@
                 <div class="outlet-section" id="decrypt">
                     <div class="outlet-header">
                         <h3 class="outlet-title">Decrypt</h3>
-                        <span class="outlet-tagline">Video Interviews</span>
                     </div>
 
                     <div class="media-grid">
@@ -367,7 +425,7 @@
                                 <span>Decrypt Media</span>
                             </div>
                             <h4>From Paper to Code: The Future of Tokenization with Carlos Domingo</h4>
-                            <p>Securitize co-founder and CEO Carlos Domingo delves into the nuances of tokenization, from its potential benefits to the industry's failed experiments.</p>
+                            <p>Securitize co-founder and CEO Carlos Domingo unpacks Wall Street's tokenization embrace.</p>
                             <div class="video-container">
                                 <iframe 
                                     src="https://www.youtube.com/embed/MroJtOIIro0" 
@@ -389,7 +447,7 @@
                                 <span>Decrypt Media</span>
                             </div>
                             <h4>Kevin O'Leary Lays the Blueprint for Crypto Mass Adoption</h4>
-                            <p>Kevin O'Leary discusses all things crypto with Decrypt, including his belief that stablecoins are a key part of the puzzle to crypto's adoption.</p>
+                            <p>Kevin O'Leary sees stablecoins as a key part of the puzzle to crypto's mainstream adoption.</p>
                             <div class="video-container">
                                 <iframe 
                                     src="https://www.youtube.com/embed/aiEcyI8enJc" 
@@ -410,7 +468,6 @@
                 <div class="outlet-section" id="coinage">
                     <div class="outlet-header">
                         <h3 class="outlet-title">Coinage</h3>
-                        <span class="outlet-tagline">Investigations</span>
                     </div>
 
                     <div class="media-grid">
@@ -421,7 +478,7 @@
                                 <span>Coinage Media</span>
                             </div>
                             <h4>Why Am I in Zambia? Separating INDXcoin and Church</h4>
-                            <p>Dive into the shocking story of Pastor Eli Regalado and the INDXcoin debacle, once touted as a divine digital asset.</p>
+                            <p>Dive into the shocking story of Pastor Eli Regalado and his "divine" digital asset.</p>
                             <div class="video-container">
                                 <iframe 
                                     src="https://www.youtube.com/embed/XrXxFnZdpG4" 
@@ -472,6 +529,7 @@
                 <a href="https://www.instagram.com/andrebeganski/" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-instagram"></i> Instagram</a>
                 <a href="Beganski_Andre_Resume.pdf" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-file-pdf"></i> Resume (PDF)</a>
             </div>
+            <p class="colophon">Built with HTML/CSS • Assisted by Gemini</p>
         </footer>
     </div>
 
